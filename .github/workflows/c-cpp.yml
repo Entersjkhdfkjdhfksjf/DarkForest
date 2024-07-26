@@ -14,10 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: configure
-      run: ./configure
+      run: export PATH="./toolchain/cross/bin:$PATH"
     - name: make
-      run: make
+      run: fs_scripts/fs_setup.sh
     - name: make check
-      run: make check
+      run: make
     - name: make distcheck
-      run: make distcheck
+      run: ./fs.sh
